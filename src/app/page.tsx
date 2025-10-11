@@ -301,31 +301,37 @@ export default function DrWebLanding() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-white/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/70 shadow-lg">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-18 lg:h-20">
-            <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 group">
-              <div className="relative">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <Image
                   src="/logo-drweb.svg"
                   alt="Dr.Web Logo"
                   width={64}
                   height={64}
-                  className="w-16 h-16 transition-transform duration-300 group-hover:scale-110"
+                  className="w-14 h-14 sm:w-16 sm:h-16 transition-transform duration-300 hover:scale-105"
                   priority
                 />
-              </div>
-              <div>
-                <div className="flex items-center space-x-2">
-                  <a
-                    href="https://гундырев.рф"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs sm:text-sm text-green-600 font-bold bg-green-50 px-2 py-0.5 rounded hover:bg-green-100 transition-colors"
-                  >
-                    Гундырев.рф
-                  </a>
-                </div>
+                <span className="text-xl sm:text-2xl font-light text-black">
+                  |
+                </span>
+                <a
+                  href="https://гундырев.рф"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center"
+                >
+                  <Image
+                    src="/logo.svg"
+                    alt="Логотип Гундырев"
+                    width={180}
+                    height={48}
+                    className="h-10 w-auto sm:h-12 transition-transform duration-300 hover:scale-105 filter brightness-0"
+                    priority
+                  />
+                </a>
               </div>
             </div>
 
@@ -430,7 +436,7 @@ export default function DrWebLanding() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-green-50 via-background to-blue-50 overflow-hidden">
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-green-50 via-background to-blue-50 overflow-hidden pt-20 sm:pt-24">
         {/* Animated Background (reverted to previous version) */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -1261,186 +1267,195 @@ export default function DrWebLanding() {
       <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-8 sm:py-12 lg:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-circuit-pattern opacity-10"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
-            <div className="md:col-span-2">
-              <div className="flex items-center mb-6 sm:mb-8 group">
-                <Image
-                  src="/logo-drweb.svg"
-                  alt="Dr.Web Logo"
-                  width={128}
-                  height={128}
-                  className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed text-lg">
-                <strong>Гундырев.рф</strong> - официальный начинающий партнер ООО «Доктор Веб» в России. 
-                Индивидуальный предприниматель <strong>Гундырев М. А.</strong> специализируется на продаже и
-                внедрении антивирусных решений Dr.Web для бизнеса и
-                государственных учреждений.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
-                <div className="text-sm text-gray-400 p-6 bg-gray-800/50 rounded-lg border border-gray-600">
-                  <p className="mb-4 text-green-400 font-semibold text-base">
-                    О компании Гундырев.рф:
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/40 backdrop-blur">
+            <div className="absolute -top-32 -right-24 h-64 w-64 rounded-full bg-emerald-500/20 blur-3xl"></div>
+            <div className="absolute -bottom-40 -left-32 h-72 w-72 rounded-full bg-green-500/10 blur-3xl"></div>
+            <div className="relative flex flex-col gap-12 p-6 sm:p-10 lg:p-16">
+              <div className="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-12">
+                <div className="xl:w-5/12 space-y-8">
+                  <div className="space-y-3">
+                    <p className="text-xs uppercase tracking-[0.35em] text-green-400">
+                      официальный партнер
+                    </p>
+                    <p className="text-2xl sm:text-3xl font-bold text-white">
+                      Гундырев.рф × Dr.Web
+                    </p>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
+                    <strong>Гундырев.рф</strong> - официальный начинающий партнер ООО «Доктор Веб» в России. 
+                    Индивидуальный предприниматель <strong>Гундырев М. А.</strong> специализируется на продаже и
+                    внедрении антивирусных решений Dr.Web для бизнеса и
+                    государственных учреждений.
                   </p>
-                  <div className="space-y-6">
-                    <div>
-                      <p className="font-medium text-gray-300 mb-3 text-sm">
-                        Наши услуги:
-                      </p>
-                      <ul className="space-y-2 text-gray-400 text-sm">
-                        <li>• Консультации по выбору решений</li>
-                        <li>• Поставка лицензий Dr.Web</li>
-                        <li>• Техническая поддержка</li>
-                        <li>• Гарантированное сопровождение</li>
-                      </ul>
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-gray-900/70 p-6 text-sm text-gray-300 space-y-5">
+                      <div className="flex items-center gap-2 text-green-400">
+                        <Building className="w-5 h-5" />
+                        <span className="font-semibold">О компании Гундырев.рф:</span>
+                      </div>
+                      <div className="space-y-5 text-gray-400">
+                        <div>
+                          <p className="font-medium text-gray-200 mb-3 text-sm">
+                            Наши услуги:
+                          </p>
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2">
+                              <ArrowRight className="w-4 h-4 mt-0.5 text-green-400" />
+                              <span>Консультации по выбору решений</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <ArrowRight className="w-4 h-4 mt-0.5 text-green-400" />
+                              <span>Поставка лицензий Dr.Web</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <ArrowRight className="w-4 h-4 mt-0.5 text-green-400" />
+                              <span>Техническая поддержка</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <ArrowRight className="w-4 h-4 mt-0.5 text-green-400" />
+                              <span>Гарантированное сопровождение</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="font-medium text-gray-200 mb-3 text-sm">
+                            Контактная информация:
+                          </p>
+                          <ul className="space-y-2">
+                            <li><span className="text-gray-300">ИНН:</span> 637607810692</li>
+                            <li><span className="text-gray-300">Телефон:</span> +7 993 077-01-68</li>
+                            <li><span className="text-gray-300">Email:</span> info@gundyrev.com</li>
+                            <li><span className="text-gray-300">Часы работы:</span> Пн-Пт 9:00-18:00</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-medium text-gray-300 mb-3 text-sm">
-                        Контактная информация:
+                    <div className="rounded-2xl border border-white/10 bg-gray-900/70 p-6 flex flex-col items-center text-center space-y-4 text-gray-300">
+                      <Image
+                        src="/logo_novice_partner.svg"
+                        alt="Novice Partner Logo"
+                        width={128}
+                        height={128}
+                        className="w-28 h-28"
+                      />
+                      <div className="space-y-1">
+                        <p className="text-lg font-bold text-green-400">
+                          Гундырев М.А.
+                        </p>
+                        <p className="font-semibold">
+                          Начинающий партнер ООО «Доктор Веб»
+                        </p>
+                        <p className="text-xs text-gray-400">
+                          Официальный статус партнерства
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-gray-900/70 p-4 text-xs text-gray-400">
+                    <p>
+                      Информация на сайте носит справочный характер и не является публичной офертой. 
+                      Окончательные условия поставки и цены уточняйте у менеджера.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="rounded-3xl border border-white/10 bg-gray-900/70 p-8 text-gray-300 space-y-8">
+                    <h4 className="text-2xl font-bold flex items-center gap-3 text-white">
+                      <Phone className="w-6 h-6 text-green-400" />
+                      Контакты
+                    </h4>
+                    <div className="space-y-6">
+                      <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/20 px-5 py-4 hover:border-green-500/40 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <Phone className="w-5 h-5 text-green-400" />
+                          <span className="text-lg font-semibold">
+                            +7 993 077-01-68
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/20 px-5 py-4 hover:border-green-500/40 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <Mail className="w-5 h-5 text-green-400" />
+                          <span className="text-lg font-semibold">
+                            info@gundyrev.com
+                          </span>
+                        </div>
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-black/20 px-5 py-4">
+                        <div className="flex items-start gap-3">
+                          <Clock className="w-5 h-5 text-green-400 mt-1" />
+                          <div>
+                            <div className="text-lg font-semibold text-white">
+                              Пн-Пт: 9:00-18:00 МСК
+                            </div>
+                            <Badge
+                              variant="secondary"
+                              className="mt-3 text-sm text-green-400 bg-green-900/30"
+                            >
+                              Техподдержка 24/7
+                            </Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="rounded-2xl border border-green-500/40 bg-green-900/20 px-5 py-4 text-sm text-green-200">
+                      <p>
+                        Свяжитесь с нами для консультации и подбора антивирусных решений Dr.Web под задачи вашего бизнеса.
                       </p>
-                      <ul className="space-y-2 text-gray-400 text-sm">
-                        <li><span className="text-gray-300">ИНН:</span> 637607810692</li>
-                        <li><span className="text-gray-300">Телефон:</span> +7 993 077-01-68</li>
-                        <li><span className="text-gray-300">Email:</span> info@gundyrev.com</li>
-                        <li><span className="text-gray-300">Часы работы:</span> Пн-Пт 9:00-18:00</li>
-                      </ul>
                     </div>
                   </div>
                 </div>
-                
-                <div className="text-sm text-gray-400 p-4 sm:p-6 bg-gray-800/50 rounded-lg border border-gray-600 flex flex-col items-center justify-center text-center">
-                  <Image
-                    src="/logo_novice_partner.svg"
-                    alt="Novice Partner Logo"
-                    width={128}
-                    height={128}
-                    className="w-32 h-32 mb-4 hover:scale-105 transition-transform duration-300"
-                  />
-                  <div>
-                    <p className="font-bold text-green-400 text-lg mb-1">
-                      Гундырев М.А.
-                    </p>
-                    <p className="text-gray-300 font-semibold">
-                      Начинающий партнер ООО «Доктор Веб»
-                    </p>
-                    <p className="text-gray-400 text-xs mt-2">
-                      Официальный статус партнерства
-                    </p>
-                  </div>
-                </div>
               </div>
-              <div className="mt-4 text-xs text-gray-500">
-                <p>
-                  Информация на сайте носит справочный характер и не является публичной офертой. 
-                  Окончательные условия поставки и цены уточняйте у менеджера.
-                </p>
-              </div>
-              <div className="flex items-center space-x-3 text-green-400 font-semibold text-lg">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center animate-pulse">
-                  <span className="text-white text-sm">🇷🇺</span>
-                </div>
-                <span>Сделано в России с любовью</span>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-2xl font-bold mb-8 flex items-center space-x-2">
-                <Shield className="w-6 h-6 text-green-400" />
-                <span>Решения</span>
-              </h4>
-              <ul className="space-y-4 text-gray-300">
-                
-                <li className="hover:text-green-400 transition-colors cursor-pointer flex items-center space-x-2">
-                  <ArrowRight className="w-4 h-4" />
-                  <span>Desktop Security Suite</span>
-                </li>
-                <li className="hover:text-green-400 transition-colors cursor-pointer flex items-center space-x-2">
-                  <ArrowRight className="w-4 h-4" />
-                  <span>Server Security Suite</span>
-                </li>
-                <li className="hover:text-green-400 transition-colors cursor-pointer flex items-center space-x-2">
-                  <ArrowRight className="w-4 h-4" />
-                  <span>Mail Security Suite</span>
-                </li>
-                <li className="hover:text-green-400 transition-colors cursor-pointer flex items-center space-x-2">
-                  <ArrowRight className="w-4 h-4" />
-                  <span>Mobile Security Suite</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-2xl font-bold mb-8 flex items-center space-x-2">
-                <Phone className="w-6 h-6 text-green-400" />
-                <span>Контакты</span>
-              </h4>
-              <div className="space-y-6 text-gray-300">
-                <div className="flex items-center space-x-3 group cursor-pointer hover:text-green-400 transition-colors">
-                  <Phone className="w-5 h-5 text-green-400 group-hover:scale-110 transition-transform" />
-                  <span className="text-lg font-semibold">
-                    +7 993 077-01-68
-                  </span>
-                </div>
-                <div className="flex items-center space-x-3 group cursor-pointer hover:text-green-400 transition-colors">
-                  <Mail className="w-5 h-5 text-green-400 group-hover:scale-110 transition-transform" />
-                  <span>info@gundyrev.com</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-green-400" />
-                  <div>
-                    <div>Пн-Пт: 9:00-18:00 МСК</div>
-                    <Badge
-                      variant="secondary"
-                      className="text-sm text-green-400 bg-green-900/30 mt-1"
-                    >
-                      Техподдержка 24/7
-                    </Badge>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 mt-16 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="mb-4 md:mb-0">
-                <p className="text-gray-400 mb-2">
-                  &copy; 2025 Гундырев.рф Все права защищены.
-                </p>
-                <div className="text-xs text-gray-500">
-                  <p>Сайт Гундырев.рф - официального партнера ООО «Доктор Веб» | ИП Гундырев М.А. | ИНН: 637607810692</p>
-                  <p>Контакты: Гундырев Максим Алексеевич | +7 993 077-01-68 | info@gundyrev.com</p>
-                  <p className="mt-1">
-                    <span className="text-green-400">«Доктор Веб»</span> —
-                    российский разработчик средств информационной безопасности с
-                    1992 года
+              <div className="border-t border-white/10 pt-8 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+                <div className="space-y-3 text-sm text-gray-400">
+                  <p className="text-gray-300">
+                    &copy; 2025 Гундырев.рф Все права защищены.
                   </p>
-                  <p className="mt-1 text-gray-500">
+                  <p>
+                    Сайт Гундырев.рф - официального партнера ООО «Доктор Веб» | ИП Гундырев М.А. | ИНН: 637607810692
+                  </p>
+                  <p>
+                    Контакты: Гундырев Максим Алексеевич | +7 993 077-01-68 | info@gundyrev.com
+                  </p>
+                  <p>
+                    <span className="text-green-400">«Доктор Веб»</span> — российский разработчик средств информационной безопасности с 1992 года
+                  </p>
+                  <p className="text-gray-500">
                     Официальный сайт Dr.Web:{" "}
                     <a
                       href="https://www.drweb.ru"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline hover:text-gray-400"
+                      className="underline hover:text-gray-300"
                     >
                       www.drweb.ru
                     </a>
                   </p>
                 </div>
-              </div>
-              <div className="flex items-center space-x-4 text-gray-400">
-                <div className="flex items-center text-sm">
-                  <Fingerprint className="w-4 h-4 mr-1" />
-                  ФСТЭК
-                </div>
-                <div className="flex items-center text-sm">
-                  <ShieldCheck className="w-4 h-4 mr-1" />
-                  ФСБ
-                </div>
-                <div className="flex items-center text-sm">
-                  <CheckCircle className="w-4 h-4 mr-1" />
-                  РРПО
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap items-center gap-4 text-gray-300">
+                    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm">
+                      <Fingerprint className="w-4 h-4 text-green-400" />
+                      <span>ФСТЭК</span>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm">
+                      <ShieldCheck className="w-4 h-4 text-green-400" />
+                      <span>ФСБ</span>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <span>РРПО</span>
+                    </div>
+                  </div>
+                  <a
+                    href="https://www.biveki.ru"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 self-start rounded-full border border-green-500/40 bg-gradient-to-r from-green-500/30 to-emerald-500/30 px-5 py-3 text-sm font-semibold text-green-200 hover:border-green-400 hover:text-green-100 transition-colors"
+                  >
+                    <Code className="w-5 h-5" />
+                    Разработка веб-приложений Biveki
+                  </a>
                 </div>
               </div>
             </div>
