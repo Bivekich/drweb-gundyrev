@@ -35,6 +35,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from "next/image";
+import Script from "next/script";
 import { useToast } from "@/components/ui/toast";
 
 import { Badge } from "@/components/ui/badge";
@@ -48,6 +49,29 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+
+const faqItems = [
+  {
+    question: "Сколько времени занимает подбор лицензий и подготовка коммерческого предложения?",
+    answer:
+      "Обычно от 1 до 2 рабочих часов. Мы оперативно уточняем количество защищаемых узлов и готовим предложение, соответствующее требованиям 44-ФЗ и 223-ФЗ.",
+  },
+  {
+    question: "Предоставляете ли вы тестовый период Dr.Web перед покупкой лицензий?",
+    answer:
+      "Да, по запросу оформляем тестовые ключи на 14 дней. Помогаем настроить пилот, чтобы вы оценили защиту на своей инфраструктуре.",
+  },
+  {
+    question: "Какие форматы сопровождения доступны после внедрения?",
+    answer:
+      "Доступны удаленное сопровождение, консультации по обновлениям и помощь с интеграцией Dr.Web Security Space, Enterprise Security Suite и других продуктов.",
+  },
+  {
+    question: "Работаете ли вы с государственными и образовательными учреждениями?",
+    answer:
+      "Да, мы сопровождаем госучреждения, школы и коммерческие организации. Предоставляем закрывающие документы и помогаем пройти проверки по требованиям ФСТЭК и ФСБ.",
+  },
+] as const;
 
 export default function DrWebLanding() {
   
@@ -350,6 +374,12 @@ export default function DrWebLanding() {
                   Услуги
                 </a>
                 <a
+                  href="#faq"
+                  className="text-sm font-medium transition-colors hover:text-primary"
+                >
+                  FAQ
+                </a>
+                <a
                   href="#contacts"
                   className="text-sm font-medium transition-colors hover:text-primary"
                 >
@@ -412,6 +442,12 @@ export default function DrWebLanding() {
                   className="block text-sm sm:text-base font-medium py-2 hover:text-primary transition-colors"
                 >
                   Услуги
+                </a>
+                <a
+                  href="#faq"
+                  className="block text-sm sm:text-base font-medium py-2 hover:text-primary transition-colors"
+                >
+                  FAQ
                 </a>
                 <a
                   href="#contacts"
@@ -1262,6 +1298,61 @@ export default function DrWebLanding() {
           </div>
         </div>
       </section>
+
+      <section
+        id="faq"
+        className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white"
+      >
+        <div className="absolute inset-0 opacity-20 bg-grid-pattern"></div>
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-sm uppercase tracking-[0.35em] text-green-400 mb-4">
+              FAQ
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4">
+              Ответы на частые вопросы
+            </h2>
+            <p className="text-base sm:text-lg text-gray-300">
+              Собрали основные вопросы о внедрении и сопровождении Dr.Web, чтобы
+              вы быстро получили ключевую информацию.
+            </p>
+          </div>
+          <div className="mt-12 max-w-4xl mx-auto space-y-4">
+            {faqItems.map((item) => (
+              <details
+                key={item.question}
+                className="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm transition-colors hover:border-green-500/50"
+              >
+                <summary className="cursor-pointer list-none px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between gap-4">
+                  <span className="text-lg sm:text-xl font-semibold text-white group-open:text-green-300">
+                    {item.question}
+                  </span>
+                  <span className="text-green-400 text-2xl transform transition-transform duration-300 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <div className="px-6 sm:px-8 pb-6 sm:pb-8 text-gray-300 text-base leading-relaxed">
+                  {item.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Script id="faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        })}
+      </Script>
 
       {/* Footer */}
       <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-8 sm:py-12 lg:py-16 relative overflow-hidden">

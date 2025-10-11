@@ -4,10 +4,12 @@ import Script from "next/script";
 import InquiryModal from "@/components/InquiryModal";
 import { ToastProvider } from "@/components/ui/toast";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const defaultSiteUrl = "https://xn--b1abde2bts0e.xn--p1ai";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: "Гундырев — партнер Dr.Web",
   title: {
     default: "Dr.Web Антивирус — Гундырев.рф | Надежная защита",
     template: "%s | Dr.Web — Гундырев.рф",
@@ -34,9 +36,20 @@ export const metadata: Metadata = {
       "Dr.Web для государственных учреждений",
       "антивирус для госорганов",
     ],
+  authors: [{ name: "Гундырев Максим Алексеевич", url: siteUrl }],
+  creator: "Гундырев Максим Алексеевич",
+  publisher: "Гундырев.рф",
+  category: "technology",
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      maxVideoPreview: -1,
+      maxImagePreview: "large",
+      maxSnippet: -1,
+    },
   },
   alternates: {
     canonical: "/",
@@ -44,6 +57,11 @@ export const metadata: Metadata = {
       "ru-RU": "/",
       "x-default": "/",
     },
+  },
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
   },
   openGraph: {
     title: "Dr.Web Антивирус — Гундырев.рф",
@@ -53,9 +71,11 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     url: "/",
     siteName: "Гундырев — партнер Dr.Web",
+    localeAlternate: ["ru_RU"],
     images: [
       {
-        url: "/opengraph-image.png",
+        url: `${siteUrl}/opengraph-image.png`,
+        secureUrl: `${siteUrl}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: "Dr.Web — партнер Гундырев",
@@ -67,7 +87,7 @@ export const metadata: Metadata = {
     title: "Dr.Web Антивирус — Гундырев.рф",
     description:
       "Российский антивирус с 30-летним опытом. Централизованная защита и быстрая реакция на угрозы.",
-    images: ["/opengraph-image.png"],
+    images: [`${siteUrl}/opengraph-image.png`],
   },
   icons: {
     icon: "/favicon.ico",
@@ -93,25 +113,63 @@ export default function RootLayout({
         <Script id="ld-json-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Гундырев — партнер Dr.Web",
-            url: siteUrl,
-            logo: `${siteUrl}/logo-drweb.svg`,
-            sameAs: [],
-            contactPoint: [{
-              "@type": "ContactPoint",
-              telephone: "+7-993-077-0168",
-              contactType: "sales",
-              areaServed: "RU",
-              availableLanguage: ["Russian"],
-            }],
-            knowsAbout: [
-              "Dr.Web для госучреждений",
-              "Dr.Web для школы",
-              "антивирус для школы",
-              "антивирус для малого бизнеса",
-              "лицензии по 44-ФЗ и 223-ФЗ"
-            ]
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${siteUrl}#organization`,
+                name: "Гундырев — партнер Dr.Web",
+                url: siteUrl,
+                logo: `${siteUrl}/logo-drweb.svg`,
+                sameAs: [
+                  "https://www.drweb.ru/",
+                  "https://www.drweb.ru/business/",
+                  "https://t.me/drweb",
+                ],
+                contactPoint: [
+                  {
+                    "@type": "ContactPoint",
+                    telephone: "+7-993-077-0168",
+                    contactType: "sales",
+                    areaServed: "RU",
+                    availableLanguage: ["Russian"],
+                  },
+                ],
+              },
+              {
+                "@type": "WebSite",
+                "@id": `${siteUrl}#website`,
+                url: siteUrl,
+                name: "Гундырев — партнер Dr.Web",
+                description:
+                  "Официальный партнер Dr.Web по продаже и внедрению корпоративных антивирусных решений в России.",
+                inLanguage: "ru-RU",
+                publisher: {
+                  "@id": `${siteUrl}#organization`,
+                },
+              },
+              {
+                "@type": "Service",
+                "@id": `${siteUrl}#service`,
+                name: "Внедрение и сопровождение антивирусных решений Dr.Web",
+                serviceType: "Корпоративная кибербезопасность",
+                provider: {
+                  "@id": `${siteUrl}#organization`,
+                },
+                areaServed: {
+                  "@type": "Country",
+                  name: "Россия",
+                },
+                audience: {
+                  "@type": "Organization",
+                  name: "Госучреждения и бизнес",
+                },
+                availableChannel: {
+                  "@type": "ServiceChannel",
+                  serviceUrl: `${siteUrl}#contacts`,
+                  servicePhone: "+7-993-077-0168",
+                },
+              },
+            ],
           })}
         </Script>
         {/* Yandex.Metrika */}
