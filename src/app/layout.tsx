@@ -107,8 +107,6 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`antialiased`}>
-        {/* Jivo Chat */}
-        <Script src="//code.jivo.ru/widget/N3LCdNFl5u" strategy="beforeInteractive" />
         {/* Organization + WebSite JSON-LD */}
         <Script id="ld-json-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({

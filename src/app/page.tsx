@@ -333,9 +333,9 @@ export default function DrWebLanding() {
                 <Image
                   src="/logo-drweb.svg"
                   alt="Dr.Web Logo"
-                  width={64}
-                  height={64}
-                  className="w-14 h-14 sm:w-16 sm:h-16 transition-transform duration-300 hover:scale-105"
+                  width={187}
+                  height={44}
+                  className="h-10 w-auto sm:h-12 transition-transform duration-300 hover:scale-105"
                   priority
                 />
                 <span className="text-xl sm:text-2xl font-light text-black">
