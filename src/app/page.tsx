@@ -49,6 +49,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import B2BBanner from "@/components/B2BBanner";
 
 const faqItems = [
   {
@@ -470,6 +471,11 @@ export default function DrWebLanding() {
           )}
         </div>
       </header>
+
+      {/* B2B/B2G Information Banner */}
+      <div className="pt-16 sm:pt-18 lg:pt-20">
+        <B2BBanner />
+      </div>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center bg-gradient-to-br from-green-50 via-background to-blue-50 overflow-hidden pt-20 sm:pt-24">
